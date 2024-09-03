@@ -12,7 +12,7 @@ async def hello_world():
 async def upload_file(file: UploadFile = File(...)):
     try:
         contents = await file.read()
-        df = await pd.read_excel(BytesIO(contents))
+        df = pd.read_excel(BytesIO(contents))
         
         # Aquí se ejecuta el proceso ETL usando el DataFrame 'df'
         # Ejemplo de conexión y carga de datos a PostgreSQL
